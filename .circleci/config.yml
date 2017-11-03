@@ -11,13 +11,13 @@ jobs:
           keys:
             - v1-{{ .Branch }}
           paths:
-            - /caches/php.tar
+            - /tmp/php.tar
       - run: |
           set +o pipefail
-          docker load -i /caches/php.tar | true
+          docker load -i /tmp/php.tar | true
       - run: docker build --cache-from=php -t php .
-      - run: docker save -o /caches/php.tar php
+      - run: docker save -o /tmp/php.tar php
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
-            - /caches/app.tar
+            - /tmp/app.tar
