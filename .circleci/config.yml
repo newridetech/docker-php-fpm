@@ -21,3 +21,4 @@ jobs:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
             - /tmp/app.tar
+      - run: docker push newride/php
