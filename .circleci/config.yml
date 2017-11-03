@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: docker:latest
-    working_directory: ~/repo/7.1
+    working_directory: /app/7.1
     steps:
       - checkout
       - setup_remote_docker
