@@ -3,11 +3,9 @@ jobs:
   build:
     docker:
       - image: docker:latest
-    working_directory: /app/7.1
+    working_directory: ~/repo
     steps:
       - checkout
-      - run: pwd
-      - run: ls -al
       - setup_remote_docker
-      - run: docker build -t php .
+      - run: docker build -t php 7.1
       - run: docker save php
