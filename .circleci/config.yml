@@ -15,10 +15,10 @@ jobs:
       - run: |
           set +o pipefail
           docker load -i /tmp/php.tar | true
-      - run: docker build --cache-from=php -t php .
-      - run: docker save -o /tmp/php.tar php
+      - run: docker build --cache-from=php -t newridetech/php .
+      - run: docker save -o /tmp/php.tar newridetech/php
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
             - /tmp/app.tar
-      - run: docker push newride/php
+      - run: docker push newridetech/php
