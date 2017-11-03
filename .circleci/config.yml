@@ -6,6 +6,8 @@ jobs:
     working_directory: /app/7.1
     steps:
       - checkout
+      - run: pwd
+      - run: ls -al
       - setup_remote_docker
       - run: docker build -t php .
       - run: docker save php
