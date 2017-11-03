@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:latest
+    working_directory: ~/repo/7.1
+    steps:
+      - checkout
+      - setup_remote_docker
+      - docker build
+      - docker save php
