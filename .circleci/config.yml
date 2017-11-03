@@ -7,5 +7,5 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - docker build
-      - docker save php
+      - run: docker build
+      - run: docker save php
