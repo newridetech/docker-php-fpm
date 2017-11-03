@@ -21,4 +21,6 @@ jobs:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
             - /tmp/app.tar
-      - run: docker push newridetech/php
+      - run: docker tag newridetech/php newridetech/php:${CIRCLE_SHA1}
+      - run: docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker push newridetech/php:${CIRCLE_SHA1}
