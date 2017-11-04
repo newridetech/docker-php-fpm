@@ -20,7 +20,7 @@ jobs:
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
-            - /tmp/app.tar
+            - /tmp/php.tar
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker tag newridetech/php newridetech/php:7.1
       - run: docker push newridetech/php:7.1
