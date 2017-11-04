@@ -22,7 +22,5 @@ jobs:
           paths:
             - /tmp/app.tar
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker tag newridetech/php newridetech/php:${CIRCLE_SHA1} newridetech/php:7.1
-      - run: docker push newridetech/php
-      - run: docker push newridetech/php:${CIRCLE_SHA1}
+      - run: docker tag newridetech/php newridetech/php:7.1
       - run: docker push newridetech/php:7.1
