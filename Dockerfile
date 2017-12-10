@@ -1,5 +1,7 @@
 FROM circleci/php:7.1
 
+# libicu-dev for intl extension
+# zlib1g-dev for zip extension
 RUN sudo apt-get install -y \
         libicu-dev \
         zlib1g-dev \
