@@ -1,9 +1,11 @@
 FROM circleci/php:7.1
 
 # libicu-dev for intl extension
+# libpng-dev for gd extension
 # zlib1g-dev for zip extension
 RUN sudo apt-get install -y \
         libicu-dev \
+        libpng-dev \
         zlib1g-dev \
     && sudo docker-php-ext-install gd \
     && sudo docker-php-ext-install intl \
