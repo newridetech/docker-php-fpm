@@ -7,6 +7,7 @@ RUN sudo apt-get install -y \
         libicu-dev \
         libpng-dev \
         zlib1g-dev \
+    && sudo docker-php-ext-install bcmath \
     && sudo docker-php-ext-install gd \
     && sudo docker-php-ext-install intl \
     && sudo docker-php-ext-install pdo_mysql \
