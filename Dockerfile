@@ -8,9 +8,7 @@ RUN apk add --no-cache --virtual .build-deps \
         libxml2-dev \
         postgresql-dev \
         sqlite-dev \
-        libicu-dev \
         libpng-dev \
-        zlib1g-dev \
     && apk add --no-cache \
         curl \
         git \
