@@ -8,14 +8,14 @@ RUN apk add --no-cache --virtual .build-deps \
         libxml2-dev \
         postgresql-dev \
         sqlite-dev \
-        libpng-dev \
-        icu-dev \
     && apk add --no-cache \
         curl \
         git \
         imagemagick \
         mysql-client \
         postgresql-libs \
+        icu-dev \
+        libpng-dev \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
     && docker-php-ext-install \
