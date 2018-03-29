@@ -1,3 +1,3 @@
 FROM newridetech/php:7.2
 
-RUN sudo apt-get install -y php72-fpm
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-fpm
