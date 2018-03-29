@@ -9,6 +9,7 @@ RUN apk add --no-cache --virtual .build-deps \
         postgresql-dev \
         sqlite-dev \
         libpng-dev \
+        icu-dev \
     && apk add --no-cache \
         curl \
         git \
