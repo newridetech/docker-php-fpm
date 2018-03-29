@@ -1,15 +1,39 @@
-FROM circleci/php:7.2
+FROM php:7.2-fpm-alpine
 
-# libicu-dev for intl extension
-# libpng-dev for gd extension
-# zlib1g-dev for zip extension
-RUN sudo apt-get install -y \
-        libicu-dev \
+RUN apk add --no-cache --virtual .build-deps \
+        $PHPIZE_DEPS \
+        curl-dev \
+        imagemagick-dev \
+        libtool \
+        libxml2-dev \
+        postgresql-dev \
+        sqlite-dev \
         libpng-dev \
-        zlib1g-dev \
-    && sudo docker-php-ext-install bcmath \
-    && sudo docker-php-ext-install gd \
-    && sudo docker-php-ext-install intl \
-    && sudo docker-php-ext-install mbstring \
-    && sudo docker-php-ext-install pdo_mysql \
-    && sudo docker-php-ext-install zip
+        icu-dev \
+    && apk add --no-cache \
+        curl \
+        git \
+        imagemagick \
+        mysql-client \
+        postgresql-libs \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick \
+    && docker-php-ext-install \
+        bcmath \
+        gd \
+        intl \
+        curl \
+        iconv \
+        mbstring \
+        pdo \
+        pdo_mysql \
+        pdo_pgsql \
+        pdo_sqlite \
+        pcntl \
+        tokenizer \
+        xml \
+        zip \
+    && curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
+    && apk del -f .build-deps
+
+WORKDIR /var/www/service/current
